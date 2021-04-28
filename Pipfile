@@ -8,9 +8,10 @@ flake8 = "*"
 black = "*"
 
 [packages]
-django = "*"
+django = "==3.0"
 pillow = "*"
-django-seed = "*"
+django-seed = "==0.2.2"
+djangorestframework = "*"
 
 [requires]
 python_version = "3.9"
