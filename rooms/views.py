@@ -13,10 +13,13 @@ def room_view(request):
         serializer = ReadRoomSerializer(rooms, many=True).data
         return Response(serializer)
     elif request.method == "POST":
+        if not request.user.is_authenticated:
+            return Response(status=status.HTTP_401_UNAUTHORIZED)
         serializer = WriteRoomSerializer(data=request.data)
         if serializer.is_valid():
-            pass
-            return Response(status=status.HTTP_200_OK)
+            room = serializer.save(user=request.user)
+            room_serializer = ReadRoomSerializer(room).data
+            return Response(data=room_serializer, status=status.HTTP_200_OK)
         else:
             return Response(status=status.HTTP_400_BAD_REQUEST)
 
