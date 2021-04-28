@@ -22,3 +22,12 @@ class ReadUserSerializer(serializers.ModelSerializer):
             "is_superuser",
             "favs",
         )
+
+
+class WriteUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ("username", "first_name", "last_name", "email", "avatar", "superhost")
+
+    def validate_first_name(self, value):
+        return value.upper()
