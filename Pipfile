@@ -13,6 +13,7 @@ pillow = "*"
 django-seed = "==0.2.2"
 djangorestframework = "*"
 black = "*"
+pyjwt = "*"
 
 [requires]
 python_version = "3.9"
