@@ -12,6 +12,7 @@ django = "==3.0"
 pillow = "*"
 django-seed = "==0.2.2"
 djangorestframework = "*"
+black = "*"
 
 [requires]
 python_version = "3.9"
